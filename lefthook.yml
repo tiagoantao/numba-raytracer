@@ -1,0 +1,26 @@
+---
+pre-commit:
+  parallel: true
+  commands:
+    black:
+      glob: "*.py"
+      run: poetry run black --check {staged_files}
+    ruff:
+      glob: "*.py"
+      run: poetry run ruff {staged_files}
+    mypy:
+      glob: "*.py"
+      run: poetry run mypy {staged_files}
+
+pre-push:
+  parallel: true
+  commands:
+    black:
+      glob: "*.py"
+      run: poetry run black --check {all_files}
+    ruff:
+      glob: "*.py"
+      run: poetry run ruff {all_files}
+    mypy:
+      glob: "*.py"
+      run: poetry run mypy {all_files}
