@@ -1,0 +1,1 @@
+"""Basic pure Python raytracer."""
